@@ -68,7 +68,7 @@
                   </li>
                   <li><a href="<?php echo base_url();?>index.php/medicine/index"><i class="fa fa-medkit"></i> Medicine <span class="fa fa-angle-right"></span></a>
                   </li>
-                  <li><a><i class="fa fa-stethoscope"></i> Test <span class="fa fa-angle-right"></span></a>
+                  <li><a href="<?php echo base_url();?>index.php/test/index"><i class="fa fa-stethoscope"></i> Test <span class="fa fa-angle-right"></span></a>
                   </li>
                 </ul>
               </div>

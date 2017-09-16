@@ -19,7 +19,12 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('login');
+		if(!$this->session->userdata('logged_in')){
+			$this->load->view('login');
+		} else {
+			redirect('index.php/admin');
+		}
+
 	}
 	public function login(){
 		//set rules
@@ -50,7 +55,7 @@ class Welcome extends CI_Controller {
 				}
 			}
 	}
-	//register user 
+	//register user
 	public function register(){
 		//set rules for form_validation
 		$this->form_validation->set_rules('username','Username','required|trim|callback_isUsernameExist');
@@ -64,16 +69,16 @@ class Welcome extends CI_Controller {
 			$username = $this->input->post('username');
 			$email = $this->input->post('email');
 			$password = md5($this->input->post('password'));
-			//create user 
+			//create user
 			$create_user = $this->welcome_model->create_user($username,$email,$password);
-			// if true success else failed 
+			// if true success else failed
 			if($create_user == TRUE){
 				$this->session->set_flashdata('register_success','You are registered . You can now login ');
 				redirect('');
 			}else{
 				$this->session->set_flashdata('register_failed','Registeration failed.Please try again or contact customercare');
 				redirect('');
-			} 
+			}
 		}
 	}
 	public function isEmailExist($email) {
@@ -81,7 +86,7 @@ class Welcome extends CI_Controller {
     $is_exist = $this->welcome_model->isEmailExist($email);
 
 		if ($is_exist) {
-			$this->form_validation->set_message('isEmailExist', 'Email address already exist.');    
+			$this->form_validation->set_message('isEmailExist', 'Email address already exist.');
 			return false;
 		} else {
 			return true;
@@ -92,7 +97,7 @@ class Welcome extends CI_Controller {
     $is_exist = $this->welcome_model->isUsernameExist($username);
 
 		if ($is_exist) {
-			$this->form_validation->set_message('isUsernameExist', 'Username already exist.');    
+			$this->form_validation->set_message('isUsernameExist', 'Username already exist.');
 			return false;
 		} else {
 			return true;
