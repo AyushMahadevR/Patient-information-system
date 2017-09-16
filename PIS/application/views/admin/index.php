@@ -1,6 +1,12 @@
 <div class="right_col" role="main">
     <div class="x_panel">
       <div class="x_content">
+        <?php if ($this->session->flashdata('pass_change')): ?>
+          <?php echo'<p class="alert alert-success">'.$this->session->flashdata('pass_change').'</p>'; ?>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('pass_fail')): ?>
+          <?php echo'<p class="alert alert-danger">'.$this->session->flashdata('pass_fail').'</p>'; ?>
+        <?php endif; ?>
         <div class="jumbotron">
             <div class="container">
               <h1>Hello, <?php echo $this->session->userdata('username');?>!</h1><br>

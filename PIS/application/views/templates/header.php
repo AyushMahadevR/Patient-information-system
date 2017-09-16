@@ -80,7 +80,7 @@
               <div class="menu_section">
                 <h3>Quick Settings</h3>
                 <ul class="nav side-menu additional-menu">
-                  <li><a href="#"><i class="fa fa-unlock-alt"></i> Change Password<span class="fa fa-angle-right"></span></a></li>
+                  <li><a href="<?php echo base_url();?>index.php/admin/pass"><i class="fa fa-unlock-alt"></i> Change Password<span class="fa fa-angle-right"></span></a></li>
                 </ul>
               </div>
             </div>
