@@ -64,7 +64,7 @@
                   </li>
                   <li><a><i class="fa fa-calendar-check-o"></i> Appointment <span class="fa fa-angle-right"></span></a>
                   </li>
-                  <li><a><i class="fa fa-ambulance"></i> Patient <span class="fa fa-angle-right"></span></a>
+                  <li><a href="<?php echo base_url();?>index.php/patient/index"><i class="fa fa-ambulance"></i> Patient <span class="fa fa-angle-right"></span></a>
                   </li>
                   <li><a href="<?php echo base_url();?>index.php/medicine/index"><i class="fa fa-medkit"></i> Medicine <span class="fa fa-angle-right"></span></a>
                   </li>
