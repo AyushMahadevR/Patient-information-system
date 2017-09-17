@@ -19,7 +19,7 @@
 			'email'		=> $email,
 			'password' 	=> $password
 		);
-		// insert into database 
+		// insert into database
 		if($this->db->insert('admin',$create_user)){
 			return true;
 		}else{
@@ -50,10 +50,5 @@
 			return false;
 		}
 	}
-  }
-
-
-
-
-
- ?>
+}
+?>

@@ -15,4 +15,14 @@
         return false;
       }
     }
+    public function oldpassExist($oldpass){
+      $this->db->select('id');
+      $this->db->where('password',$oldpass);
+      $query = $this->db->get('admin');
+      if($query->num_rows() > 0 ){
+        return true;
+      } else {
+        return false;
+      }
+    }
   }

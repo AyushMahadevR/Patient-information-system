@@ -15,6 +15,13 @@
               <?php endif; ?>
               <form class="form-horizontal form-label-left" action="<?php echo base_url();?>index.php/admin/pass" method="post">
                 <div class="form-group">
+                  <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password"> Old Password <span class="required">*</span>
+                  </label>
+                  <div class="col-md-6 col-sm-6 col-xs-12">
+                    <input type="password" name="oldpass" required="required" class="form-control col-md-7 col-xs-12">
+                  </div>
+                </div>
+                <div class="form-group">
                   <label class="control-label col-md-3 col-sm-3 col-xs-12" for="password"> New Password <span class="required">*</span>
                   </label>
                   <div class="col-md-6 col-sm-6 col-xs-12">

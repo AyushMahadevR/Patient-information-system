@@ -23,6 +23,7 @@
       if(!$this->session->userdata('logged_in')){
         redirect('');
       } else {
+        $this->form_validation->set_rules('oldpass','Old Password','required|callback_oldpassExist');
         $this->form_validation->set_rules('password1','Password','required');
         $this->form_validation->set_rules('password2','Confirm password','required|matches[password1]');
         if($this->form_validation->run() == FALSE){
@@ -42,6 +43,18 @@
             redirect('index.php/admin/index');
           }
         }
+      }
+    }
+    public function oldpassExist($oldpass){
+      $old = md5($oldpass);
+      //check in db
+      $is_exist = $this->admin_model->oldpassExist($old);
+
+      if($is_exist){
+        return true;
+      } else {
+        $this->form_validation->set_message('oldpassExist','Wrong Old Password');
+        return false;
       }
     }
   }
